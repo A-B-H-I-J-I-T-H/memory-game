@@ -13,8 +13,8 @@ function App() {
   useEffect(() => {},[value])
 
   const handleclick = (e) => {
-    if (value.find(ind => { return ind === index })===undefined)
-      setvalue(current => [...current, index]);
+    if (value.find(ind => { return ind === e })===undefined)
+      setvalue(current => [...current, e]);
     else
       fin();
   }
@@ -27,9 +27,9 @@ function App() {
   return (
     <>
       {Array(7).fill(0).map((_, i) => {
-        index = getRndInteger(1,8);
+        index = getRndInteger(1,30);
         while (arr.find(ind => { return ind === index })!==undefined) {
-          index = getRndInteger(1,8);
+          index = getRndInteger(1,30);
         }
         arr[i] = index;
         return <Card key={i} index={index} onClick={(e) => handleclick(e)} />}
